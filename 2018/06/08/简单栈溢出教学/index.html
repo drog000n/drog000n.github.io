@@ -152,18 +152,18 @@
 
 
 
-  <meta name="description" content="关于栈的一些基础知识">
+  <meta name="description" content="关于栈的一些基础知识 本文主要包括简单的栈溢出问题以及如何绕过一些防护措施！">
 <meta name="keywords" content="pwn,ctf">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Simple stack overflow tutorial">
+<meta property="og:title" content="Stack Overflow Exploit">
 <meta property="og:url" content="http://yoursite.com/2018/06/08/简单栈溢出教学/index.html">
 <meta property="og:site_name" content="Expl0r3r">
-<meta property="og:description" content="关于栈的一些基础知识">
+<meta property="og:description" content="关于栈的一些基础知识 本文主要包括简单的栈溢出问题以及如何绕过一些防护措施！">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-08T06:21:32.125Z">
+<meta property="og:updated_time" content="2018-06-08T06:58:59.119Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Simple stack overflow tutorial">
-<meta name="twitter:description" content="关于栈的一些基础知识">
+<meta name="twitter:title" content="Stack Overflow Exploit">
+<meta name="twitter:description" content="关于栈的一些基础知识 本文主要包括简单的栈溢出问题以及如何绕过一些防护措施！">
 
 
 
@@ -180,7 +180,7 @@
   };
 </script>
 
-  <title>Simple stack overflow tutorial | Expl0r3r</title>
+  <title>Stack Overflow Exploit | Expl0r3r</title>
   
 
 
@@ -362,7 +362,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Simple stack overflow tutorial
+          <h1 class="post-title" itemprop="name headline">Stack Overflow Exploit
               
             
           </h1>
@@ -387,7 +387,7 @@
                 
               
 
-              <time title="Created: 2018-06-08 00:00:00 / Modified: 14:21:32" itemprop="dateCreated datePublished" datetime="2018-06-08T00:00:00+08:00">2018-06-08</time>
+              <time title="Created: 2018-06-08 00:00:00 / Modified: 14:58:59" itemprop="dateCreated datePublished" datetime="2018-06-08T00:00:00+08:00">2018-06-08</time>
             
 
             
@@ -426,7 +426,14 @@
 
       
         <p>关于栈的一些基础知识</p>
+<p>本文主要包括简单的栈溢出问题以及如何绕过一些防护措施！</p>
 <a id="more"></a>
+<p>##前置技能</p>
+<ul>
+<li>Basic C Knowledge</li>
+<li>Basic x86 assembly language</li>
+<li>Basic gcc as well as Linux command  </li>
+</ul>
 <h2 id="基本例子（无防护措施）"><a href="#基本例子（无防护措施）" class="headerlink" title="基本例子（无防护措施）"></a>基本例子（无防护措施）</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// stack_example_1.c</span></span><br><span class="line"><span class="comment">// gcc stack_example_1.c -m32 -fno-stack-protector -z execstack -no-pie -o stack_example_1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">success</span><span class="params">()</span> </span>&#123; write(<span class="number">1</span>, <span class="string">" You PWN me! \n"</span>, <span class="number">12</span>); <span class="built_in">exit</span>(<span class="number">0</span>); &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">vulnerable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> s[<span class="number">16</span>];</span><br><span class="line">  read(<span class="number">0</span>, s, <span class="number">0x100</span>);</span><br><span class="line">  write(<span class="number">1</span>, s, <span class="built_in">strlen</span>(s));</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">  vulnerable();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>禁用系统的ASLR：<code>sudo sh -c &quot;echo 0 &gt; /proc/sys/kernel/randomize_va_space&quot;</code></p>
 <p>先 gdb 调试，使用 <code>pattern create</code> 和 <code>pattern offset</code> 计算出返回地址所在位置，再获取 success 函数的地址，把返回地址换成 success 函数的地址（覆盖原有的返回值的），就可以执行到 success 函数了。利用脚本如下。</p>
@@ -827,6 +834,11 @@
 
   
 
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
 </html>
 <script type="text/javascript" src="/js/src/love.js"></script>
