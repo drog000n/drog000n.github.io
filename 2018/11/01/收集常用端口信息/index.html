@@ -160,7 +160,7 @@
 <meta property="og:site_name" content="Expl0r3r">
 <meta property="og:description" content="一些Web安全常用端口">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-01T04:24:51.677Z">
+<meta property="og:updated_time" content="2018-11-01T04:43:02.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="收集常用端口信息">
 <meta name="twitter:description" content="一些Web安全常用端口">
@@ -387,7 +387,7 @@
                 
               
 
-              <time title="Created: 2018-11-01 00:00:00 / Modified: 12:24:51" itemprop="dateCreated datePublished" datetime="2018-11-01T00:00:00+08:00">2018-11-01</time>
+              <time title="Created: 2018-11-01 00:00:00 / Modified: 12:43:02" itemprop="dateCreated datePublished" datetime="2018-11-01T00:00:00+08:00">2018-11-01</time>
             
 
             
@@ -459,12 +459,243 @@
 </tr>
 </tbody>
 </table>
-<p><strong>远程连接端口</strong><br>| Port |      Info       |                     Exploit                  |<br>|——-| :—————: | :———————————:|<br>| 22   |   SSH远程连接   |      爆破、ssh隧道及内网代理转发、文件传输       |<br>| 23   | Telnet远程连接  |                爆破、弱口令、嗅探                |<br>| 3389 | Rdp远程桌面连接 | shift后门（Windows Server 2003以前的系统）、爆破 |<br>| 5900 |       VNC       |                   弱口令、爆破                 |<br>| 5632 | PyAnyWhere服务 |                 抓密码，代码执行                |</p>
-<p><strong>Web应用服务端口</strong><br>| Port        |           Info            |              Exploit        |<br>| ———– | :———————–: | :————————-: |<br>| 80/443/8080 |     常见的Web服务端口     | Web攻击、爆破、对应服务器版本漏洞 |<br>| 7001/7002   |      Weblogic控制台       |       Java反序列化、弱口令     |<br>| 8080/8089   | Jboss/Resin/Jetty/Jenkins |      反序列化、控制台弱口令    |<br>| 9090        |      WebSphere控制台      |       Java反序列化、弱口令     |<br>| 4848        |      GlassFish控制台      |              弱口令           |<br>| 1352        |   Lotus domino邮件服务    |      弱口令、信息泄露、爆破      |<br>| 10000       |    Webmin-Web控制面板     |              弱口令           |</p>
-<p><strong>数据库服务端口</strong><br>| Port        |       Info        |           Exploit            |<br>| ———– | :—————: | :————————–: |<br>| 3306        |       MySQL       |       注入、提权、爆破       |<br>| 1433        |    MSSQL数据库    |  注入、提取、SA弱口令、爆破  |<br>| 1521        |   Oracle数据库    |  TNS爆破 、注入、反弹Shell   |<br>| 5432        | PostgreSQL数据库  |      爆破、注入、弱口令      |<br>| 27017/27018 |   MongoDB数据库   |       爆破、未授权访问       |<br>| 6379        |    Redis数据库    | 可尝试未授权访问、弱口令爆破 |<br>| 5000        | SysBase/DB2数据库 |          爆破、注入          |</p>
-<p><strong>邮件服务端口</strong><br>| Port |     Info     |  Exploit   |<br>| —- | :———-: | :——–: |<br>| 25   | SMTP邮件服务 |  邮件伪造  |<br>| 110  |   POP3协议   | 爆破、嗅探 |<br>| 143  |   IMAP协议   |    爆破    |</p>
-<p><strong>网络常见协议端口</strong><br>| Port  |    Info     |                Exploit                |<br>| —– | :———: | :———————————–: |<br>| 53    | DNS域名系统 | 允许区域传送、DNS劫持、缓存投毒、欺骗 |<br>| 67/68 |  DHCP服务   |              劫持、欺骗               |<br>| 161   |    SNMP     |        爆破、收集目标内网信息         |</p>
-<p><strong>特殊服务端口</strong><br>| Port      |       Info        |      Exploit      |<br>| ——— | :—————: | :—————: |<br>| 2181      |   Zookeeper服务   |    未授权访问     |<br>| 8069      |    Zabbix服务     | 远程执行、SQL注入 |<br>| 9200/9300 | Elasticsearch服务 |     远程执行      |<br>| 11211     |    Memache服务    |    未授权访问     |<br>|512/513/514| Linux Rexec服务|爆破、Rlogin登陆|<br>|873|Rsync服务|匿名访问、文件上传|<br>|3690|Svn服务|Svn泄露、未授权访问|<br>|50000|SAP Management Console|远程执行|</p>
+<p><strong>远程连接端口</strong></p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th style="text-align:center">Info</th>
+<th style="text-align:center">Exploit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>22</td>
+<td style="text-align:center">SSH远程连接</td>
+<td style="text-align:center">爆破、ssh隧道及内网代理转发、文件传输</td>
+</tr>
+<tr>
+<td>23</td>
+<td style="text-align:center">Telnet远程连接</td>
+<td style="text-align:center">爆破、弱口令、嗅探</td>
+</tr>
+<tr>
+<td>3389</td>
+<td style="text-align:center">Rdp远程桌面连接</td>
+<td style="text-align:center">shift后门（Windows Server 2003以前的系统）、爆破</td>
+</tr>
+<tr>
+<td>5900</td>
+<td style="text-align:center">VNC</td>
+<td style="text-align:center">弱口令、爆破</td>
+</tr>
+<tr>
+<td>5632</td>
+<td style="text-align:center">PyAnyWhere服务</td>
+<td style="text-align:center">抓密码，代码执行</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Web应用服务端口</strong></p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th style="text-align:center">Info</th>
+<th style="text-align:center">Exploit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>80/443/8080</td>
+<td style="text-align:center">常见的Web服务端口</td>
+<td style="text-align:center">Web攻击、爆破、对应服务器版本漏洞</td>
+</tr>
+<tr>
+<td>7001/7002</td>
+<td style="text-align:center">Weblogic控制台</td>
+<td style="text-align:center">Java反序列化、弱口令</td>
+</tr>
+<tr>
+<td>8080/8089</td>
+<td style="text-align:center">Jboss/Resin/Jetty/Jenkins</td>
+<td style="text-align:center">反序列化、控制台弱口令</td>
+</tr>
+<tr>
+<td>9090</td>
+<td style="text-align:center">WebSphere控制台</td>
+<td style="text-align:center">Java反序列化、弱口令</td>
+</tr>
+<tr>
+<td>4848</td>
+<td style="text-align:center">GlassFish控制台</td>
+<td style="text-align:center">弱口令</td>
+</tr>
+<tr>
+<td>1352</td>
+<td style="text-align:center">Lotus domino邮件服务</td>
+<td style="text-align:center">弱口令、信息泄露、爆破</td>
+</tr>
+<tr>
+<td>10000</td>
+<td style="text-align:center">Webmin-Web控制面板</td>
+<td style="text-align:center">弱口令</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据库服务端口</strong></p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th style="text-align:center">Info</th>
+<th style="text-align:center">Exploit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3306</td>
+<td style="text-align:center">MySQL</td>
+<td style="text-align:center">注入、提权、爆破</td>
+</tr>
+<tr>
+<td>1433</td>
+<td style="text-align:center">MSSQL数据库</td>
+<td style="text-align:center">注入、提取、SA弱口令、爆破</td>
+</tr>
+<tr>
+<td>1521</td>
+<td style="text-align:center">Oracle数据库</td>
+<td style="text-align:center">TNS爆破 、注入、反弹Shell</td>
+</tr>
+<tr>
+<td>5432</td>
+<td style="text-align:center">PostgreSQL数据库</td>
+<td style="text-align:center">爆破、注入、弱口令</td>
+</tr>
+<tr>
+<td>27017/27018</td>
+<td style="text-align:center">MongoDB数据库</td>
+<td style="text-align:center">爆破、未授权访问</td>
+</tr>
+<tr>
+<td>6379</td>
+<td style="text-align:center">Redis数据库</td>
+<td style="text-align:center">可尝试未授权访问、弱口令爆破</td>
+</tr>
+<tr>
+<td>5000</td>
+<td style="text-align:center">SysBase/DB2数据库</td>
+<td style="text-align:center">爆破、注入</td>
+</tr>
+</tbody>
+</table>
+<p><strong>邮件服务端口</strong></p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th style="text-align:center">Info</th>
+<th style="text-align:center">Exploit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25</td>
+<td style="text-align:center">SMTP邮件服务</td>
+<td style="text-align:center">邮件伪造</td>
+</tr>
+<tr>
+<td>110</td>
+<td style="text-align:center">POP3协议</td>
+<td style="text-align:center">爆破、嗅探</td>
+</tr>
+<tr>
+<td>143</td>
+<td style="text-align:center">IMAP协议</td>
+<td style="text-align:center">爆破</td>
+</tr>
+</tbody>
+</table>
+<p><strong>网络常见协议端口</strong></p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th style="text-align:center">Info</th>
+<th style="text-align:center">Exploit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>53</td>
+<td style="text-align:center">DNS域名系统</td>
+<td style="text-align:center">允许区域传送、DNS劫持、缓存投毒、欺骗</td>
+</tr>
+<tr>
+<td>67/68</td>
+<td style="text-align:center">DHCP服务</td>
+<td style="text-align:center">劫持、欺骗</td>
+</tr>
+<tr>
+<td>161</td>
+<td style="text-align:center">SNMP</td>
+<td style="text-align:center">爆破、收集目标内网信息</td>
+</tr>
+</tbody>
+</table>
+<p><strong>特殊服务端口</strong></p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th style="text-align:center">Info</th>
+<th style="text-align:center">Exploit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2181</td>
+<td style="text-align:center">Zookeeper服务</td>
+<td style="text-align:center">未授权访问</td>
+</tr>
+<tr>
+<td>8069</td>
+<td style="text-align:center">Zabbix服务</td>
+<td style="text-align:center">远程执行、SQL注入</td>
+</tr>
+<tr>
+<td>9200/9300</td>
+<td style="text-align:center">Elasticsearch服务</td>
+<td style="text-align:center">远程执行</td>
+</tr>
+<tr>
+<td>11211</td>
+<td style="text-align:center">Memache服务</td>
+<td style="text-align:center">未授权访问</td>
+</tr>
+<tr>
+<td>512/513/514</td>
+<td style="text-align:center">Linux Rexec服务</td>
+<td style="text-align:center">爆破、Rlogin登陆</td>
+</tr>
+<tr>
+<td>873</td>
+<td style="text-align:center">Rsync服务</td>
+<td style="text-align:center">匿名访问、文件上传</td>
+</tr>
+<tr>
+<td>3690</td>
+<td style="text-align:center">Svn服务</td>
+<td style="text-align:center">Svn泄露、未授权访问</td>
+</tr>
+<tr>
+<td>50000</td>
+<td style="text-align:center">SAP Management Console</td>
+<td style="text-align:center">远程执行</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
