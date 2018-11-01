@@ -152,21 +152,25 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://drog000n.github.io/about/index.html">
+  <meta name="description" content="一些Web安全常用端口">
+<meta name="keywords" content="web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="收集常用端口信息">
+<meta property="og:url" content="https://drog000n.github.io/2018/11/01/收集常用端口信息/index.html">
 <meta property="og:site_name" content="Expl0r3r">
+<meta property="og:description" content="一些Web安全常用端口">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-01T03:53:15.140Z">
+<meta property="og:updated_time" content="2018-11-01T04:24:51.677Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
+<meta name="twitter:title" content="收集常用端口信息">
+<meta name="twitter:description" content="一些Web安全常用端口">
 
 
 
 
 
 
-  <link rel="canonical" href="https://drog000n.github.io/about/"/>
+  <link rel="canonical" href="https://drog000n.github.io/2018/11/01/收集常用端口信息/"/>
 
 
 
@@ -176,7 +180,7 @@
   };
 </script>
 
-  <title>about | Expl0r3r</title>
+  <title>收集常用端口信息 | Expl0r3r</title>
   
 
 
@@ -272,7 +276,7 @@
         
         
           
-          <li class="menu-item menu-item-about menu-item-active">
+          <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
@@ -301,25 +305,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -346,43 +331,201 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://drog000n.github.io/2018/11/01/收集常用端口信息/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Expl0r3r">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Expl0r3r">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">about</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">收集常用端口信息
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-11-01 00:00:00 / Modified: 12:24:51" itemprop="dateCreated datePublished" datetime="2018-11-01T00:00:00+08:00">2018-11-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-        
-      </div>
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>一些Web安全常用端口</p>
+<a id="more"></a>
+<p><strong>文件共享端口</strong></p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th style="text-align:center">Info</th>
+<th style="text-align:center">Exploit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>21/22/69</td>
+<td style="text-align:center">Ftp/Tftp文件传输协议</td>
+<td style="text-align:center">允许匿名的上传、下载、爆破和嗅探操作</td>
+</tr>
+<tr>
+<td>2049</td>
+<td style="text-align:center">Nfs服务</td>
+<td style="text-align:center">配置不当</td>
+</tr>
+<tr>
+<td>139</td>
+<td style="text-align:center">Samba服务</td>
+<td style="text-align:center">爆破、未授权访问、远程代码执行</td>
+</tr>
+<tr>
+<td>389</td>
+<td style="text-align:center">Ldap目录访问协议</td>
+<td style="text-align:center">注入、允许匿名访问、弱口令</td>
+</tr>
+</tbody>
+</table>
+<p><strong>远程连接端口</strong><br>| Port |      Info       |                     Exploit                  |<br>|——-| :—————: | :———————————:|<br>| 22   |   SSH远程连接   |      爆破、ssh隧道及内网代理转发、文件传输       |<br>| 23   | Telnet远程连接  |                爆破、弱口令、嗅探                |<br>| 3389 | Rdp远程桌面连接 | shift后门（Windows Server 2003以前的系统）、爆破 |<br>| 5900 |       VNC       |                   弱口令、爆破                 |<br>| 5632 | PyAnyWhere服务 |                 抓密码，代码执行                |</p>
+<p><strong>Web应用服务端口</strong><br>| Port        |           Info            |              Exploit        |<br>| ———– | :———————–: | :————————-: |<br>| 80/443/8080 |     常见的Web服务端口     | Web攻击、爆破、对应服务器版本漏洞 |<br>| 7001/7002   |      Weblogic控制台       |       Java反序列化、弱口令     |<br>| 8080/8089   | Jboss/Resin/Jetty/Jenkins |      反序列化、控制台弱口令    |<br>| 9090        |      WebSphere控制台      |       Java反序列化、弱口令     |<br>| 4848        |      GlassFish控制台      |              弱口令           |<br>| 1352        |   Lotus domino邮件服务    |      弱口令、信息泄露、爆破      |<br>| 10000       |    Webmin-Web控制面板     |              弱口令           |</p>
+<p><strong>数据库服务端口</strong><br>| Port        |       Info        |           Exploit            |<br>| ———– | :—————: | :————————–: |<br>| 3306        |       MySQL       |       注入、提权、爆破       |<br>| 1433        |    MSSQL数据库    |  注入、提取、SA弱口令、爆破  |<br>| 1521        |   Oracle数据库    |  TNS爆破 、注入、反弹Shell   |<br>| 5432        | PostgreSQL数据库  |      爆破、注入、弱口令      |<br>| 27017/27018 |   MongoDB数据库   |       爆破、未授权访问       |<br>| 6379        |    Redis数据库    | 可尝试未授权访问、弱口令爆破 |<br>| 5000        | SysBase/DB2数据库 |          爆破、注入          |</p>
+<p><strong>邮件服务端口</strong><br>| Port |     Info     |  Exploit   |<br>| —- | :———-: | :——–: |<br>| 25   | SMTP邮件服务 |  邮件伪造  |<br>| 110  |   POP3协议   | 爆破、嗅探 |<br>| 143  |   IMAP协议   |    爆破    |</p>
+<p><strong>网络常见协议端口</strong><br>| Port  |    Info     |                Exploit                |<br>| —– | :———: | :———————————–: |<br>| 53    | DNS域名系统 | 允许区域传送、DNS劫持、缓存投毒、欺骗 |<br>| 67/68 |  DHCP服务   |              劫持、欺骗               |<br>| 161   |    SNMP     |        爆破、收集目标内网信息         |</p>
+<p><strong>特殊服务端口</strong><br>| Port      |       Info        |      Exploit      |<br>| ——— | :—————: | :—————: |<br>| 2181      |   Zookeeper服务   |    未授权访问     |<br>| 8069      |    Zabbix服务     | 远程执行、SQL注入 |<br>| 9200/9300 | Elasticsearch服务 |     远程执行      |<br>| 11211     |    Memache服务    |    未授权访问     |<br>|512/513/514| Linux Rexec服务|爆破、Rlogin登陆|<br>|873|Rsync服务|匿名访问、文件上传|<br>|3690|Svn服务|Svn泄露、未授权访问|<br>|50000|SAP Management Console|远程执行|</p>
+
       
     </div>
+
     
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/web/" rel="tag"># web</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/08/简单栈溢出教学/" rel="next" title="Stack Overflow Exploit">
+                <i class="fa fa-chevron-left"></i> Stack Overflow Exploit
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
 
-    
-    
-    
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
